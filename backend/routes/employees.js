@@ -125,6 +125,7 @@ router.put('/:id', auth, async (req, res) => {
     employee.phone = req.body.phone || employee.phone;
     employee.department = department._id;
     employee.position = req.body.position || employee.position;
+    employee.hireDate = req.body.hireDate ? new Date(req.body.hireDate) : employee.hireDate;
     employee.status = req.body.status || employee.status;
 
     await employee.save();
